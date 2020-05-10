@@ -11,7 +11,6 @@ export default class Card extends VuexModule {
   async getNewDeck() {
     const response: NewDeck = await CardService.getNewDeck();
 
-    console.log(response, ":1");
     return response.deck_id;
   }
 
@@ -24,7 +23,6 @@ export default class Card extends VuexModule {
   async addToPile({ cards }: AddPile) {
     const response: Pile | null = await CardService.addToPile(this.id, cards);
 
-    console.log(response, ":2");
     return response;
   }
 
@@ -32,7 +30,6 @@ export default class Card extends VuexModule {
   async getCardsPile(id: string | number) {
     const response: Piles = await CardService.getCardsPile(id);
 
-    console.log(response, ":3");
     return response;
   }
 

@@ -41,49 +41,7 @@ interface InputValue {
   }
 })
 export default class Cards extends Vue {
-  // ? Comment this
-  private inputValues: InputValue[] = [
-    {
-      id: 1,
-      value: "2H"
-    },
-    {
-      id: 2,
-      value: "3H"
-    },
-    {
-      id: 3,
-      value: "4H"
-    },
-    {
-      id: 4,
-      value: "5H"
-    },
-    {
-      id: 5,
-      value: "6H"
-    },
-    {
-      id: 6,
-      value: "7H"
-    },
-    {
-      id: 7,
-      value: "8H"
-    },
-    {
-      id: 8,
-      value: "9H"
-    },
-    {
-      id: 9,
-      value: "QH"
-    },
-    {
-      id: 10,
-      value: "JH"
-    }
-  ];
+  private inputValues: InputValue[] = [];
   private inputRotation: InputValue = {
     id: 1,
     value: "KD"
@@ -93,12 +51,11 @@ export default class Cards extends Vue {
   @Action("addToPile") private addToPile!: (cards: AddPile) => void;
   @Action("drawAllCards") private drawAllCards!: (id: string | number) => void;
 
-  // ? Uncomment this
-  // created() {
-  //   Array(10)
-  //     .fill(0)
-  //     .forEach((it, index) => this.inputValues.push({ id: index + 1, value: "" }));
-  // }
+  created() {
+    Array(10)
+      .fill(0)
+      .forEach((it, index) => this.inputValues.push({ id: index + 1, value: "" }));
+  }
 
   private getInputValues(iterator: number): InputValue[] {
     return this.inputValues.filter((inputValue: InputValue) =>
