@@ -43,8 +43,8 @@ interface InputValue {
 export default class Cards extends Vue {
   private inputValues: InputValue[] = [];
   private inputRotation: InputValue = {
-    id: 1,
-    value: "KD"
+    id: 0,
+    value: ""
   };
   @State(state => state.card.id) private id!: boolean;
   @Action("getNewDeck") private getNewDeck!: () => void;
